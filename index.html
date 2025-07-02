@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Voice Agent</title>
+  <title>Voice Agent Launcher</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0d1117;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  <h1 style="text-align: center; margin-top: 20%;">👋 Welcome! Initializing Voice Agent...</h1>
-
   <elevenlabs-convai
     agent-id="agent_01jyez28ecfttt78cdcgf8rk8m"
     auto-start
-    auto-listen
-    position="bottom-right"
-  ></elevenlabs-convai>
+    style="z-index: 9999"
+  >
+  </elevenlabs-convai>
 
-  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 </body>
 </html>
