@@ -2,36 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Auto-Start Voice Agent</title>
-    <script type="module">
-      import {
-        createAgentInstance,
-      } from 'https://cdn.jsdelivr.net/npm/@elevenlabs/voice-agent-web/dist/index.min.js';
-
-      window.onload = async () => {
-        const agent = await createAgentInstance({
-          agentId: "agent_01jyez28ecfttt78cdcgf8rk8m", // Your agent ID
-          enableWakeWord: false,
-          showDebugInfo: false,
-        });
-
-        // Wait for the widget to initialize
-        agent.on('ready', async () => {
-          console.log("Agent ready. Sending first message...");
-
-          // REQUIRED dynamic variable
-          const userName = "Crush"; // Replace with actual user_name if dynamic
-          
-          await agent.startConversation({
-            message: "Hi there, what's the weather like today?",
-            sessionParams: {
-              user_name: userName
-            }
-          });
-        });
-      };
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Crush's Voice Agent</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        color: #fff;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <script
+      src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+      async
+      type="text/javascript"
+    ></script>
   </head>
   <body>
+    <elevenlabs-convai
+      agent-id="agent_01jyez28ecfttt78cdcgf8rk8m"
+      user-name="Crush"
+      conversation-initiation-client-data='{"user_name": "Crush"}'
+      auto-start
+      auto-listen
+    ></elevenlabs-convai>
+    <h1>Voice Agent is Active</h1>
   </body>
 </html>
