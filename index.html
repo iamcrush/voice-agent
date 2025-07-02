@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Crush's Voice Agent</title>
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        background-color: #000;
-        color: #fff;
-        font-family: sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-    <script
-      src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-      async
-      type="text/javascript"
-    ></script>
-  </head>
-  <body>
-    <elevenlabs-convai
-      agent-id="agent_01jyez28ecfttt78cdcgf8rk8m"
-      user-name="Crush"
-      conversation-initiation-client-data='{"user_name": "Crush"}'
-      auto-start
-      auto-listen
-    ></elevenlabs-convai>
-    <h1>Voice Agent is Active</h1>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voice Agent</title>
+</head>
+<body>
+  <!-- ElevenLabs Conversational Agent Widget -->
+  <elevenlabs-convai agent-id="agent_01jyez28ecfttt78cdcgf8rk8m"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+  <!-- Auto-start logic: inject client data and optionally click start -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const event = new CustomEvent("conversation_initiation_client_data", {
+        detail: {
+          user_name: "Crush",
+          location: "Shortcut Trigger",
+          context: "User opened the assistant via Siri Shortcut."
+        }
+      });
+      window.dispatchEvent(event);
+
+      // Optionally simulate button press
+      setTimeout(() => {
+        const startBtn = document.querySelector('button');
+        if (startBtn && startBtn.innerText.toLowerCase().includes("start")) {
+          startBtn.click();
+        }
+      }, 1200);
+    });
+  </script>
+</body>
 </html>
