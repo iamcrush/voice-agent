@@ -32,7 +32,17 @@
       async
       type="text/javascript"
     ></script>
-
-    <h1>Voice Agent is Active</h1>
+    <script>
+      window.addEventListener('elevenlabs-widget-ready', () => {
+        const widget = document.querySelector('elevenlabs-convai');
+        if (widget && widget.startConversation) {
+          widget.startConversation({
+            conversation_initiation_client_data: {
+              user_name: "Crush"
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
