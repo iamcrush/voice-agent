@@ -2,22 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Voice Agent</title>
 </head>
 <body>
-  <!-- ✅ Fullscreen voice agent with auto-start -->
+  <h1 style="text-align: center; margin-top: 20%;">👋 Welcome! Initializing Voice Agent...</h1>
+
   <elevenlabs-convai
     agent-id="agent_01jyez28ecfttt78cdcgf8rk8m"
     auto-start
-    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 9999;"
+    auto-listen
+    position="bottom-right"
   ></elevenlabs-convai>
 
-  <!-- 👇 Embed script -->
-  <script
-    src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-    async
-    type="text/javascript"
-  ></script>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
